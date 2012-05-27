@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails-backbone'
+gem 'backbone-support'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
