@@ -1,8 +1,19 @@
 class ThreeStrikes.Models.Person extends Backbone.Model
 
+  initialize: ->
+    @on('change:strikes', @parseStrikes)
+    @parseStrikes()
+    @strikes.on('change', => @.trigger('change'))
+
   strike: =>
-    strike = new ThreeStrikes.Models.Strike(
-      { person_id: @id }
+    @strikes.create(
+      strike: { person_id: @id }
     )
-    strike.save()
-    @set('strikes_count', @get('strikes_count') + 1)
+
+  parseStrikes: ->
+    @strikes = new ThreeStrikes.Collections.Strikes(@get('strikes'))
+
+  toJSON: ->
+    json = _.clone(this.attributes)
+    json.strikes_count = @strikes.length
+    json

@@ -1,5 +1,5 @@
 ThreeStrikes::Application.routes.draw do
-  resources :strikes, only: [:create]
+  resources :strikes, only: [:show, :create]
 
   get "main/index"
 

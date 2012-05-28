@@ -6,7 +6,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
     'click .strike': 'strike'
     
   initialize: ->
-    @model.bind('change', @render)
+    @model.on('change', @render)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
