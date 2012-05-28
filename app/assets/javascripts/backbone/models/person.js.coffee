@@ -5,3 +5,4 @@ class ThreeStrikes.Models.Person extends Backbone.Model
       { person_id: @id }
     )
     strike.save()
+    @set('strikes_count', @get('strikes_count') + 1)

@@ -4,6 +4,9 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
   
   events: ->
     'click .strike': 'strike'
+    
+  initialize: ->
+    @model.bind('change', @render)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
@@ -12,5 +15,3 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
   strike: (event) =>
     event.preventDefault()
     @model.strike()
-    @model.set('strikes_count', @model.get('strikes_count') + 1)
-    @render()
