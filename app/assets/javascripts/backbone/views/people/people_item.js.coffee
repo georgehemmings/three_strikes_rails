@@ -9,7 +9,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
     @model.on('change', @render)
 
   render: =>
-    $(@el).html(@template(@model.toJSON()))
+    $(@el).html(@template(@model))
     this
   
   strike: (event) =>

@@ -13,7 +13,5 @@ class ThreeStrikes.Models.Person extends Backbone.Model
   parseStrikes: ->
     @strikes = new ThreeStrikes.Collections.Strikes(@get('strikes'))
 
-  toJSON: ->
-    json = _.clone(this.attributes)
-    json.strikes_count = @strikes.length
-    json
+  strikes_count: =>
+    @strikes.length
