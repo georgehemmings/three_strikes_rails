@@ -3,7 +3,19 @@
   <h3>Strike {{this.attributes.name}}</h3>
 </div>
 <div class="modal-body">
-  <p></p>
+  <div class="alert alert-error hide"></div>
+  <form> 
+    <label for="reason">
+      <abbr title="required">*</abbr> Reason
+    </label>
+    <div>
+      <textarea class="string required xxlarge" 
+                id="reason" 
+                name="reason" 
+                rows="3"
+                autofocus />
+    </div>
+  </form>
 </div>
 <div class="modal-footer">
   <a href="#" class="btn" data-dismiss="modal">Cancel</a>

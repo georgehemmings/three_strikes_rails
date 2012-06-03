@@ -15,3 +15,10 @@ window.ThreeStrikes =
 
 jQuery ->
   ThreeStrikes.init()
+
+# =====================
+# = Native Extensions =
+# =====================
+
+String.prototype.capitalize = ->
+  @charAt(0).toUpperCase() + @slice(1)
