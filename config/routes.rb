@@ -1,9 +1,8 @@
 ThreeStrikes::Application.routes.draw do
   resources :strikes, only: [:show, :create]
+  resources :people, only: [:index, :show, :create]
 
   get "main/index"
-
-  get "people/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
