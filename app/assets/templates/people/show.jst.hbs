@@ -1,0 +1,19 @@
+<h1>{{name}}'s Strikes</h1>
+{{#if strikes.length}}
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each strikes}}
+        <tr>
+          <td>{{reason}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  No strikes! Yet...
+{{/if}}

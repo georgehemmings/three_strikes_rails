@@ -6,3 +6,8 @@ class ThreeStrikes.Models.Person extends Backbone.Model
 
   strikes_count: =>
     @strikes.length
+
+  toJSON: =>
+    json = _.clone(@attributes)
+    json.strikes = @strikes.toJSON()
+    json
