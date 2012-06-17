@@ -7,6 +7,7 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
 
   initialize: ->
     @model.strikes.on('add', @render)
+    @model.strikes.on('remove', @render)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
