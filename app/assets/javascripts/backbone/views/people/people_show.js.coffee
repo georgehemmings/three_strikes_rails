@@ -1,9 +1,8 @@
 class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
   template: JST['people/show']
 
-  events: {
+  events:
     'click .strike': 'strike'
-  }
 
   initialize: ->
     @model.strikes.on('add', @render)

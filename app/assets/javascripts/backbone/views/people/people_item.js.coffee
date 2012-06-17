@@ -2,7 +2,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
   template: JST['people/item']
   tagName: 'tr'
 
-  events: ->
+  events:
     'click .strike': 'strike'
 
   initialize: ->

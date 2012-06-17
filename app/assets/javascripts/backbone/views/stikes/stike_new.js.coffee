@@ -1,7 +1,7 @@
 class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
   template: JST['strikes/new']
 
-  events: ->
+  events:
     'click .strike': 'strike'
 
   render: =>

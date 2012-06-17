@@ -2,7 +2,7 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
   template: JST['strikes/item']
   tagName: 'tr'
 
-  events: ->
+  events:
     'click .delete': 'delete'
 
   render: =>

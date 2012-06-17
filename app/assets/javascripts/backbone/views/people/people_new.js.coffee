@@ -1,7 +1,7 @@
 class ThreeStrikes.Views.PeopleNew extends Backbone.View
   template: JST['people/new']
   
-  events: ->
+  events:
     'click .add-person': 'addPerson'
     'submit form': 'addPerson'
   
