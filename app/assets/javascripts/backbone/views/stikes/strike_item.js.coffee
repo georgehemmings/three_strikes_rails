@@ -14,4 +14,4 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     @model.destroy({
       wait: true
     })
-
+    @remove()

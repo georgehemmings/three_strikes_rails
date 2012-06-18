@@ -6,7 +6,7 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
 
   initialize: ->
     @model.strikes.on('add', @render)
-    @model.strikes.on('remove', @render)
+    @model.strikes.on('remove', @rerender)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
@@ -18,6 +18,9 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
       )
     )
     this
+
+  rerender: =>
+    @render() if @model.strikes.length == 0
 
   strike: (event) =>
     event.preventDefault()
