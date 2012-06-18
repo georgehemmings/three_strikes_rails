@@ -11,4 +11,11 @@ class StrikesController < ApplicationController
     strike = Strike.find(params[:id])
     respond_with strike.destroy
   end
+
+  def update
+    strike = Strike.find(params[:id])
+    strike.update_attributes(params[:strike])
+    strike.save
+    respond_with strike
+  end
 end

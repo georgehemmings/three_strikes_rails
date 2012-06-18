@@ -4,6 +4,10 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
 
   events:
     'click .delete': 'delete'
+    'click .edit': 'edit'
+
+  initialize: ->
+    @model.on('change', @render)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
@@ -15,3 +19,11 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
       wait: true
     })
     @remove()
+
+  edit: (event) =>
+    event.preventDefault()
+    view = new ThreeStrikes.Views.StrikeEdit(model: @model)
+    view.render()
+    $modal = $("#modal")
+    $modal.html(view.el)
+    $modal.modal()
