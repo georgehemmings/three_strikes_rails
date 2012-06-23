@@ -27,3 +27,7 @@ class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
       el: @$('.alert-error')
       model: new ThreeStrikes.Models.Error(error)
     }).render()
+
+  leave: ->
+    @unbindFromAll()
+    super

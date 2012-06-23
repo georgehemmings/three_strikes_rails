@@ -7,7 +7,7 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     'click .edit': 'edit'
 
   initialize: ->
-    @model.on('change', @render)
+    @bindTo(@model, 'change', @render)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
@@ -27,3 +27,7 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     $modal = $("#modal")
     $modal.html(view.el)
     $modal.modal()
+
+  leave: ->
+    @unbindFromAll()
+    super

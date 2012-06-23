@@ -6,7 +6,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
     'click .strike': 'strike'
 
   initialize: ->
-    @model.on('change', @render)
+    @bindTo(@model, 'change', @render)
 
   render: =>
     $(@el).html(@template(@model))
@@ -19,3 +19,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
     $modal = $("#modal")
     $modal.html(view.el)
     $modal.modal()
+
+  leave: ->
+    @unbindFromAll()
+    super

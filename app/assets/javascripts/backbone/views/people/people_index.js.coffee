@@ -5,8 +5,8 @@ class ThreeStrikes.Views.PeopleIndex extends Support.CompositeView
     'click #add-person': 'addPerson'
 
   initialize: ->
-    @collection.on('reset', @render, this)
-    @collection.on('add', @render, this)
+    @bindTo(@collection, 'reset', @render)
+    @bindTo(@collection, 'add', @render)
 
   render: =>
     $(@el).html(@template)
@@ -26,3 +26,7 @@ class ThreeStrikes.Views.PeopleIndex extends Support.CompositeView
     $modal = $("#modal")
     $modal.html(view.el)
     $modal.modal()
+
+  leave: ->
+    @unbindFromAll()
+    super

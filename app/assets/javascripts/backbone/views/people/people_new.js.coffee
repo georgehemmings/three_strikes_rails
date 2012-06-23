@@ -27,3 +27,7 @@ class ThreeStrikes.Views.PeopleNew extends Backbone.View
       el: @$('.alert-error')
       model: new ThreeStrikes.Models.Error(error)
     }).render()
+
+  leave: ->
+    @unbindFromAll()
+    super

@@ -4,6 +4,9 @@ class ThreeStrikes.Views.StrikeEdit extends Support.CompositeView
   events:
     'click .save': 'save'
 
+  initialize: ->
+    @bindTo(@model, 'change', @render)
+
   render: =>
     $(@el).html(@template(@model.toJSON()))
     this
@@ -26,3 +29,7 @@ class ThreeStrikes.Views.StrikeEdit extends Support.CompositeView
       el: @$('.alert-error')
       model: new ThreeStrikes.Models.Error(error)
     }).render()
+
+  leave: ->
+    @unbindFromAll()
+    super
