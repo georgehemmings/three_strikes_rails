@@ -5,8 +5,8 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
     'click .strike': 'strike'
 
   initialize: ->
-    @bindTo(@model, 'add', @render)
-    @bindTo(@model, 'remove', @rerender)
+    @bindTo(@model.strikes, 'add', @render)
+    @bindTo(@model.strikes, 'remove', @rerender)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
@@ -28,6 +28,7 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
     view.render()
     $modal = $("#modal")
     $modal.html(view.el)
+    $modal.one('hidden', -> view.leave())
     $modal.modal()
 
   leave: ->

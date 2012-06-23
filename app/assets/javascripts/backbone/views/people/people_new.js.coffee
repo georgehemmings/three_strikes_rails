@@ -1,4 +1,4 @@
-class ThreeStrikes.Views.PeopleNew extends Backbone.View
+class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
   template: JST['people/new']
   
   events:
@@ -28,6 +28,6 @@ class ThreeStrikes.Views.PeopleNew extends Backbone.View
       model: new ThreeStrikes.Models.Error(error)
     }).render()
 
-  leave: ->
+  leave: =>
     @unbindFromAll()
     super

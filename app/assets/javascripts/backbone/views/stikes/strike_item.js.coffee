@@ -26,6 +26,7 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     view.render()
     $modal = $("#modal")
     $modal.html(view.el)
+    $modal.one('hidden', -> view.leave())
     $modal.modal()
 
   leave: ->

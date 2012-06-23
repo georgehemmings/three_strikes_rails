@@ -28,6 +28,6 @@ class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
       model: new ThreeStrikes.Models.Error(error)
     }).render()
 
-  leave: ->
+  leave: =>
     @unbindFromAll()
     super
