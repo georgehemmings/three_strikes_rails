@@ -4,9 +4,6 @@ class ThreeStrikes.Views.StrikeEdit extends Support.CompositeView
   events:
     'click .save': 'save'
 
-  initialize: ->
-    @bindTo(@model, 'change', @render)
-
   render: =>
     $(@el).html(@template(@model.toJSON()))
     this
