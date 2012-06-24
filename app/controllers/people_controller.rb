@@ -16,4 +16,11 @@ class PeopleController < ApplicationController
     person = Person.find(params[:id])
     respond_with person.destroy
   end
+  
+  def update
+    person = Person.find(params[:id])
+    person.update_attributes(params[:person])
+    person.save
+    respond_with person
+  end
 end
