@@ -11,4 +11,9 @@ class PeopleController < ApplicationController
     person = Person.find(params[:id])
     respond_with person
   end
+
+  def destroy
+    person = Person.find(params[:id])
+    respond_with person.destroy
+  end
 end
