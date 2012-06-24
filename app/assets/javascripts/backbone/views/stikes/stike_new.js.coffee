@@ -11,7 +11,7 @@ class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
   strike: (event) ->
     event.preventDefault()
 
-    @model.strikes.create({
+    @model.get('strikes').create({
       person_id: @model.id
       reason: $('#reason').val()
     }, {

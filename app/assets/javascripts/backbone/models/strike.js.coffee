@@ -1,1 +1,1 @@
-class ThreeStrikes.Models.Strike extends Backbone.Model
+class ThreeStrikes.Models.Strike extends Backbone.RelationalModel

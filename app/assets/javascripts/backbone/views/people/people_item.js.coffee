@@ -7,6 +7,7 @@ class ThreeStrikes.Views.PeopleItem extends Support.CompositeView
 
   initialize: ->
     @bindTo(@model, 'change', @render)
+    @bindTo(@model, 'add:strikes', @render)
 
   render: =>
     $(@el).html(@template(@model))

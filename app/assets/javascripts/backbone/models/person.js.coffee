@@ -1,13 +1,10 @@
-class ThreeStrikes.Models.Person extends Backbone.Model
-
-  initialize: ->
-    @strikes = new ThreeStrikes.Collections.Strikes(@get('strikes'))
-    @strikes.on('add', => @.trigger('change'))
+class ThreeStrikes.Models.Person extends Backbone.RelationalModel
+  relations: [{
+    type: Backbone.HasMany
+    key: 'strikes'
+    relatedModel: 'ThreeStrikes.Models.Strike'
+    collectionType: 'ThreeStrikes.Collections.Strikes'
+  }]
 
   strikes_count: =>
-    @strikes.length
-
-  toJSON: =>
-    json = _.clone(@attributes)
-    json.strikes = @strikes.toJSON()
-    json
+    @get('strikes').length

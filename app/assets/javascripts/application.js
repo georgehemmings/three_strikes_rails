@@ -6,6 +6,7 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone-support
+//= require backbone-relational
 //= require handlebars.runtime
 //= require backbone/three_strikes
 //= require_tree .
