@@ -4,6 +4,7 @@ class ThreeStrikes.Models.Person extends Backbone.RelationalModel
     key: 'strikes'
     relatedModel: 'ThreeStrikes.Models.Strike'
     collectionType: 'ThreeStrikes.Collections.Strikes'
+    includeInJSON: false
   }]
 
   strikes_count: =>
