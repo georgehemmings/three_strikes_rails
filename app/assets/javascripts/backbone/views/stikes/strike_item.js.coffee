@@ -17,8 +17,9 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     event.preventDefault()
     @model.destroy({
       wait: true
+      success: =>
+        @remove()
     })
-    @remove()
 
   edit: (event) =>
     event.preventDefault()
