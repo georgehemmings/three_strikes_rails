@@ -10,8 +10,8 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
-    @model.get('strikes').each( (person) =>
-      row = new ThreeStrikes.Views.StrikeItem(model: person)
+    @model.get('strikes').each( (strike) =>
+      row = new ThreeStrikes.Views.StrikeItem(model: strike)
       @renderChild(row)
       @$('tbody').append(
         row.el
