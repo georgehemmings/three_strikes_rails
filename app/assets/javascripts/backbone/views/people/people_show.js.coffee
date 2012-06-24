@@ -5,22 +5,20 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
     'click .strike': 'strike'
 
   initialize: ->
-    @bindTo(@model, 'add:strikes', @render)
-    @bindTo(@model, 'remove:strikes', @rerender)
+    @bindTo(@model, 'add:strikes', @renderStrike)
 
   render: =>
     $(@el).html(@template(@model.toJSON()))
-    @model.get('strikes').each( (strike) =>
-      row = new ThreeStrikes.Views.StrikeItem(model: strike)
-      @renderChild(row)
-      @$('tbody').append(
-        row.el
-      )
-    )
+    @model.get('strikes').each(@renderStrike)
     this
 
-  rerender: =>
-    @render() if @model.get('strikes').length == 0
+  renderStrike: (strike) =>
+    row = new ThreeStrikes.Views.StrikeItem(model: strike)
+    @renderChild(row)
+    @$('tbody').append(
+      row.el
+    )
+    this
 
   strike: (event) =>
     event.preventDefault()
