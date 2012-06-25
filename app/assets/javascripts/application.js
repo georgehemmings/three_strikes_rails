@@ -7,6 +7,8 @@
 //= require backbone_datalink
 //= require backbone-support
 //= require backbone-relational
+//= require backbone-forms/backbone-forms
+//= require backbone-forms/bootstrap
 //= require handlebars.runtime
 //= require backbone/three_strikes
 //= require_tree .
