@@ -14,13 +14,13 @@ class PeopleController < ApplicationController
 
   def destroy
     person = Person.find(params[:id])
-    respond_with person.destroy
+    person.destroy
+    respond_with person
   end
   
   def update
     person = Person.find(params[:id])
     person.update_attributes(params[:person])
-    person.save
     respond_with person
   end
 end
