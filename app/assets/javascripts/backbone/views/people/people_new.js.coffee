@@ -4,22 +4,26 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
   events:
     'click .add-person': 'addPerson'
     'submit form': 'addPerson'
-  
-  render: ->
-    $(@el).html(@template(@model))
+
+  initialize: ->
+    @form = new Backbone.Form(model: new ThreeStrikes.Models.Person())
+
+  render: =>
+    $(@el).html(@template())
+    @$('div.modal-body').append(@form.render().el)  
     this
 
   addPerson: (event) ->
     event.preventDefault()
-
-    @collection.create({
-      name: $('#name').val()
-    }, {
-      wait: true
-      success: =>
-        $("#modal").modal('hide')
-      error: @showErrors
-    })
+    
+    @collection.create(
+      @form.getValue(), {
+        wait: true
+        success: =>
+          $("#modal").modal('hide')
+        error: @showErrors
+      }
+    )
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)
