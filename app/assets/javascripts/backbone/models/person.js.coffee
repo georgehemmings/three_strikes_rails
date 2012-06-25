@@ -10,6 +10,7 @@ class ThreeStrikes.Models.Person extends Backbone.RelationalModel
   schema: {
     name: {
       type: 'Text'
+      validators: ['required']
     }
   }
 

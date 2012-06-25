@@ -16,14 +16,15 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
   addPerson: (event) ->
     event.preventDefault()
     
-    @collection.create(
-      @form.getValue(), {
-        wait: true
-        success: =>
-          $("#modal").modal('hide')
-        error: @showErrors
-      }
-    )
+    unless @form.validate()
+      @collection.create(
+        @form.getValue(), {
+          wait: true
+          success: =>
+            $("#modal").modal('hide')
+          error: @showErrors
+        }
+      )
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)

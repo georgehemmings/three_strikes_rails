@@ -15,14 +15,15 @@ class ThreeStrikes.Views.PeopleEdit extends Support.CompositeView
   save: (event) ->
     event.preventDefault()
 
-    @model.save(
-      @form.getValue(), {
-        wait: true
-        success: =>
-          $("#modal").modal('hide')
-        error: @showErrors
-      }
-    )
+    unless @form.validate()
+      @model.save(
+        @form.getValue(), {
+          wait: true
+          success: =>
+            $("#modal").modal('hide')
+          error: @showErrors
+        }
+      )
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)
