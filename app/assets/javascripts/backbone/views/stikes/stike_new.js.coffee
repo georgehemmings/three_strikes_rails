@@ -5,7 +5,7 @@ class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
     'click .strike': 'strike'
 
   render: =>
-    $(@el).html(@template(@model.toJSON()))
+    $(@el).html(@template())
     this
 
   strike: (event) ->
