@@ -20,3 +20,7 @@ group :development do
   gem 'quiet_assets'
   gem 'sqlite3'
 end
+
+group :production do
+  gem 'activerecord-postgresql-adapter'
+end
