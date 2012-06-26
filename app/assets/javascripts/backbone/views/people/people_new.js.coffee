@@ -16,6 +16,8 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
   addPerson: (event) ->
     event.preventDefault()
     
+    @clearErrors()
+    
     unless @form.validate()
       @collection.create(
         @form.getValue(), {
@@ -25,6 +27,9 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
           error: @showErrors
         }
       )
+      
+  clearErrors: ->
+    @$('.alert-error').empty().hide()
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)
