@@ -14,6 +14,8 @@ class ThreeStrikes.Views.PeopleEdit extends Support.CompositeView
 
   save: (event) ->
     event.preventDefault()
+    
+    @clearErrors()
 
     unless @form.validate()
       @model.save(
@@ -24,6 +26,9 @@ class ThreeStrikes.Views.PeopleEdit extends Support.CompositeView
           error: @showErrors
         }
       )
+
+  clearErrors: ->
+    @$('.alert-error').empty().hide()
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)
