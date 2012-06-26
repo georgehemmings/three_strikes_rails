@@ -3,8 +3,8 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
   tagName: 'tr'
 
   events:
-    'click .delete': 'delete'
-    'click .edit': 'edit'
+    'click .delete-strike': 'delete'
+    'click .edit-strike': 'edit'
 
   initialize: ->
     @bindTo(@model, 'change', @render)
