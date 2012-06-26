@@ -4,8 +4,10 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
   events:
     'click .strike': 'strike'
     'click .delete': 'delete'
+    'click .edit': 'edit'
 
   initialize: ->
+    @bindTo(@model, 'change', @render)
     @bindTo(@model, 'add:strikes', @renderStrike)
 
   render: =>
@@ -29,6 +31,15 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
     $modal.html(view.el)
     $modal.one('hidden', -> view.leave())
     $modal.modal()    
+
+  edit: (event) =>
+    event.preventDefault()
+    view = new ThreeStrikes.Views.PeopleEdit(model: @model)
+    view.render()
+    $modal = $("#modal")
+    $modal.html(view.el)
+    $modal.one('hidden', -> view.leave())
+    $modal.modal()
 
   delete: (event) =>
     event.preventDefault()
