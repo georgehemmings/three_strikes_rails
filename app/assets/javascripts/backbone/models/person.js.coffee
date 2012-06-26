@@ -11,6 +11,7 @@ class ThreeStrikes.Models.Person extends Backbone.RelationalModel
     name: {
       type: 'Text'
       validators: ['required']
+      editorAttrs: { autofocus: 'autofocus' }
     }
   }
 
