@@ -3,6 +3,7 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
 
   events:
     'click .strike': 'strike'
+    'click .delete': 'delete'
 
   initialize: ->
     @bindTo(@model, 'add:strikes', @renderStrike)
@@ -27,7 +28,15 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
     $modal = $("#modal")
     $modal.html(view.el)
     $modal.one('hidden', -> view.leave())
-    $modal.modal()
+    $modal.modal()    
+
+  delete: (event) =>
+    event.preventDefault()
+    @model.destroy({
+      wait: true
+      success: =>
+        window.location.hash = ''
+    })
 
   leave: ->
     @unbindFromAll()
