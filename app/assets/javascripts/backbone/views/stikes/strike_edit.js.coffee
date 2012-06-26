@@ -4,21 +4,31 @@ class ThreeStrikes.Views.StrikeEdit extends Support.CompositeView
   events:
     'click .save': 'save'
 
+  initialize: ->
+    @form = new Backbone.Form(model: @model)
+
   render: =>
-    $(@el).html(@template(@model.toJSON()))
+    $(@el).html(@template())
+    @$('div.modal-body').append(@form.render().el)  
     this
 
   save: (event) ->
     event.preventDefault()
 
-    @model.save({
-      reason: $('#reason').val()
-    }, {
-      wait: true
-      success: =>
-        $("#modal").modal('hide')
-      error: @showErrors
-    })
+    @clearErrors()
+
+    unless @form.validate()
+      @model.save(
+        @form.getValue(), {
+          wait: true
+          success: =>
+            $("#modal").modal('hide')
+          error: @showErrors
+        }
+      )
+    
+  clearErrors: ->
+    @$('.alert-error').empty().hide()
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)

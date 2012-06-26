@@ -4,22 +4,33 @@ class ThreeStrikes.Views.StrikeNew extends Support.CompositeView
   events:
     'click .strike': 'strike'
 
+  initialize: ->
+    @form = new Backbone.Form(
+      model: new ThreeStrikes.Models.Strike(person_id: @model.id)
+    )
+
   render: =>
     $(@el).html(@template())
+    @$('div.modal-body').append(@form.render().el)  
     this
 
   strike: (event) ->
     event.preventDefault()
 
-    @model.get('strikes').create({
-      person_id: @model.id
-      reason: $('#reason').val()
-    }, {
-      wait: true
-      success: =>
-        $("#modal").modal('hide')
-      error: @showErrors
-    })
+    @clearErrors()
+
+    unless @form.validate()
+      @model.get('strikes').create(
+        @form.getValue(), {
+          wait: true
+          success: =>
+            $("#modal").modal('hide')
+          error: @showErrors
+        }
+      )
+
+  clearErrors: ->
+    @$('.alert-error').empty().hide()  
 
   showErrors: (model, response, options) =>
     error = JSON.parse(response.responseText)
