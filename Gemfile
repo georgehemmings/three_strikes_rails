@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
-gem 'sqlite3'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails-backbone'
@@ -19,4 +18,5 @@ group :development do
   gem 'awesome_print'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'quiet_assets'
+  gem 'sqlite3'
 end
