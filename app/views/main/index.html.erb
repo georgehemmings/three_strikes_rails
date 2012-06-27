@@ -1,6 +1,6 @@
 <%= content_tag "div", 
                 "Loading..", 
                 id: "container", 
-                data: { people: Person.all } %>
+                data: { people: Person.order('name ASC') } %>
 
 <div class="modal hide" id="modal"></div>

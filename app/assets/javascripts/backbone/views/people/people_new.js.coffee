@@ -1,6 +1,6 @@
 class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
   template: JST['people/new']
-  
+
   events:
     'click .add-person': 'addPerson'
     'submit form': 'addPerson'
@@ -10,14 +10,14 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
 
   render: =>
     $(@el).html(@template())
-    @$('div.modal-body').append(@form.render().el)  
+    @$('div.modal-body').append(@form.render().el)
     this
 
   addPerson: (event) ->
     event.preventDefault()
-    
+
     @clearErrors()
-    
+
     unless @form.validate()
       @collection.create(
         @form.getValue(), {
@@ -27,7 +27,7 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
           error: @showErrors
         }
       )
-      
+
   clearErrors: ->
     @$('.alert-error').empty().hide()
 
