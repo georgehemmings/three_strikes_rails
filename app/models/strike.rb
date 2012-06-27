@@ -1,4 +1,6 @@
 class Strike < ActiveRecord::Base
+  attr_accessible :reason, :person_id
+  
   belongs_to :person
   
   validates :person, presence: true
