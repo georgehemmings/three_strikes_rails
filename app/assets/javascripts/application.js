@@ -12,3 +12,7 @@
 //= require handlebars.runtime
 //= require backbone/three_strikes
 //= require_tree .
+
+// backbone-forms initalizer
+
+Backbone.Form.validators.errMessages.required = "can't be blank"
