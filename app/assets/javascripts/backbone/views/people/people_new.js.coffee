@@ -22,11 +22,14 @@ class ThreeStrikes.Views.PeopleNew extends Support.CompositeView
       @collection.create(
         @form.getValue(), {
           wait: true
-          success: =>
-            $("#modal").modal('hide')
+          success: @showPerson
           error: @showErrors
         }
       )
+      
+  showPerson: (model) ->
+    $("#modal").modal('hide')
+    window.location.hash = "#/people/#{model.id}"
 
   clearErrors: ->
     @$('.alert-error').empty().hide()
