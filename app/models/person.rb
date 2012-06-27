@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
   
   validates :name, presence: true
   validates :name, uniqueness: true
+  validates :name, length: { maximum: 255 }
   
   default_scope { order('name ASC') }
   
