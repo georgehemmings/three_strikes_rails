@@ -23,6 +23,7 @@ class ThreeStrikes.Views.PeopleEdit extends Support.CompositeView
           wait: true
           success: =>
             $("#modal").modal('hide')
+            @collection.sort()
           error: @showErrors
         }
       )

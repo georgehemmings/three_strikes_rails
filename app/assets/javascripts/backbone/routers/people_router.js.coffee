@@ -16,6 +16,7 @@ class ThreeStrikes.Routers.People extends Support.SwappingRouter
   show: (personId) ->
     person = @collection.get(personId)
     view = new ThreeStrikes.Views.PeopleShow({
+      collection: @collection,
       model: person
     })
     @swap(view)

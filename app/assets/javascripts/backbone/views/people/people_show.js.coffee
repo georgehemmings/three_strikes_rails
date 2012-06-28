@@ -34,7 +34,10 @@ class ThreeStrikes.Views.PeopleShow extends Support.CompositeView
 
   edit: (event) =>
     event.preventDefault()
-    view = new ThreeStrikes.Views.PeopleEdit(model: @model)
+    view = new ThreeStrikes.Views.PeopleEdit(
+      collection: @collection,
+      model: @model
+    )
     view.render()
     $modal = $("#modal")
     $modal.html(view.el)
