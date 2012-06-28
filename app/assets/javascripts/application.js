@@ -10,5 +10,6 @@
 //= require backbone-forms/backbone-forms
 //= require backbone-forms/bootstrap
 //= require handlebars.runtime
+//= require humanize.js
 //= require backbone/three_strikes
 //= require_tree .

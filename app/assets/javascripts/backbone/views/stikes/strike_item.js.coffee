@@ -10,7 +10,7 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
     @bindTo(@model, 'change', @render)
 
   render: =>
-    $(@el).html(@template(@model.toJSON()))
+    $(@el).html(@template(@present(@model)))
     this
 
   delete: (event) =>
@@ -33,3 +33,13 @@ class ThreeStrikes.Views.StrikeItem extends Support.CompositeView
   leave: ->
     @unbindFromAll()
     super
+    
+  natualDay: (rawDateString) ->
+    secondsSinceEpoch = date('U', new Date(rawDateString))
+    Humanize.naturalDay(secondsSinceEpoch, 'd F Y')
+
+  present: (strike) -> 
+    {
+      when: @natualDay(strike.get('when'))
+      reason: strike.get('reason')
+    }

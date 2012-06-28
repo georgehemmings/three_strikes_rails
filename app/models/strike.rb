@@ -1,5 +1,5 @@
 class Strike < ActiveRecord::Base
-  attr_accessible :reason, :person_id
+  attr_accessible :when, :reason, :person_id
   
   belongs_to :person
   

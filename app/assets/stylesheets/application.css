@@ -29,3 +29,7 @@ textarea {
 col.strikes, col.actions {
   width: 100px;
 }
+
+col.when {
+  width: 125px
+}
