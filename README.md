@@ -1,7 +1,7 @@
 # Three Strikes #
 
 Three Strikes is an app for keeping track of the times when people wrong you. 
-When a person wrongs you give them a strike! You can record a date and reason 
+When a person wrongs you, give them a strike! You can record a date and reason 
 for the strike, for future review. If a person gets three strikes maybe you
 should lose them!  
 
